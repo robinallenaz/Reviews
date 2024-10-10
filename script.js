@@ -75,5 +75,18 @@ class Adventurer extends Character {
             console.log(`${this.name} failed to find anything...`)
         }
     }
+
+    usehealthPotion() {
+        if (this.inventory.includes('potion')) {
+            if ((this.health + 25) > 100) {
+                this.health = 100;
+            } else {
+                this.health += 25;
+            }
+            //remove the potion
+            this.inventory.splice(this.inventory.indexOf('potion'), 1);
+        }
+    }
 }
 robin.loot("sword", "potion", "artifact");
+
