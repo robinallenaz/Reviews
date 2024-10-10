@@ -87,6 +87,12 @@ class Adventurer extends Character {
             this.inventory.splice(this.inventory.indexOf('potion'), 1);
         }
     }
+    async sayInspirationalQuote() {
+        const response = await fetch("https://api.realinspire.tech/v1/quotes/random");
+        const data = await response.json();
+    }
 }
 robin.loot("sword", "potion", "artifact");
+
+
 
