@@ -87,6 +87,18 @@ class Adventurer extends Character {
             this.inventory.splice(this.inventory.indexOf('potion'), 1);
         }
     }
+    duel () {
+        while (this.health > 50 && enemy.health > 50) {
+            const thisRoll = this.roll();
+            const enemyRoll = enemy.roll();
+        if (thisRoll > enemyRoll) {
+            enemy.health -= 1;
+            console.log(`${this.name} struck!`)
+        } else {
+            this.health -= 1;
+            console.log(`${enemy.name} struck!`);
+        }
+    }
     async sayInspirationalQuote() {
         const response = await fetch("https://api.realinspire.tech/v1/quotes/random");
         const data = await response.json();
@@ -95,4 +107,9 @@ class Adventurer extends Character {
 robin.loot("sword", "potion", "artifact");
 
 
+const leo = new Companion("Leo", "Cat");
+leo.attach(robin);
+leo.lendaHand('Kit')
 
+const frank =  new Companion("Frank", "Flea");
+frank.attach(leo)
