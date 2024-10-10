@@ -88,6 +88,7 @@ class Adventurer extends Character {
         }
     }
     duel () {
+        let round = 1;
         while (this.health > 50 && enemy.health > 50) {
             const thisRoll = this.roll();
             const enemyRoll = enemy.roll();
@@ -98,6 +99,8 @@ class Adventurer extends Character {
             this.health -= 1;
             console.log(`${enemy.name} struck!`);
         }
+        console.log(`Round ${round}`);
+        round++;
     }
     async sayInspirationalQuote() {
         const response = await fetch("https://api.realinspire.tech/v1/quotes/random");
