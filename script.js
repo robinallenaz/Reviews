@@ -51,3 +51,17 @@ robin.companion.companion.type = "Flea";
 robin.companion.companion.inventory = ["small hat", "sunglasses"];
 
 console.log(robin);
+
+//Part 3
+
+class Adventurer extends Character {
+    constructor(name, role) {
+    super(name);
+    this.role = role;
+    this.inventory.push("bedroll", "50 gold lines");
+    }
+    scout() {
+        console.log(`${this.name} is scouting ahead`);
+        super.roll();
+    }
+}
