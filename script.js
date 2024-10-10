@@ -64,4 +64,16 @@ class Adventurer extends Character {
         console.log(`${this.name} is scouting ahead`);
         super.roll();
     }
+
+    loot(...items) {
+        const roll = this.roll();
+        if (roll > 5) {
+            console.log(`${this.name} is looting area for items...
+                found ${items.join(", ")}`)
+                this.inventory.push(...items);
+        } else {
+            console.log(`${this.name} failed to find anything...`)
+        }
+    }
 }
+robin.loot("sword", "potion", "artifact");
